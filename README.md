@@ -509,7 +509,3 @@ Performance results depend on:
 Absolute results from different server configurations should not be combined without recording these parameters.
 
 ---
-
-## License
-
-MIT
