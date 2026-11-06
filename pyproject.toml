@@ -1,0 +1,166 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "llm-inference-performance-lab"
+version = "0.1.0"
+description = "Reproducible laboratory for benchmarking, profiling and optimizing LLM inference on NVIDIA GPUs."
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { text = "MIT" }
+authors = [
+    { name = "Tu Nombre" }
+]
+keywords = [
+    "llm",
+    "inference",
+    "benchmark",
+    "profiling",
+    "cuda",
+    "nvidia",
+    "pytorch",
+    "vllm"
+]
+
+dependencies = [
+    "torch",
+    "transformers",
+    "accelerate",
+    "safetensors",
+    "huggingface-hub",
+    "tokenizers",
+    "numpy",
+    "pandas",
+    "pydantic>=2",
+    "pyyaml",
+    "psutil",
+    "httpx",
+    "aiohttp",
+    "typer",
+    "rich",
+]
+
+
+[project.optional-dependencies]
+serving = [
+    "vllm",
+    "openai",
+]
+
+visualization = [
+    "matplotlib",
+]
+
+monitoring = [
+    "nvidia-ml-py",
+]
+
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+    "pre-commit",
+]
+
+all = [
+    "llm-inference-performance-lab[serving,visualization,monitoring,dev]",
+]
+
+
+[project.scripts]
+llm-perf-baseline = "llm_perf_lab.baseline.runner:main"
+llm-perf-benchmark = "llm_perf_lab.benchmarks.runner:main"
+llm-perf-report = "llm_perf_lab.visualization.report:main"
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llm_perf_lab"]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+]
+markers = [
+    "gpu: tests that require an NVIDIA GPU",
+    "integration: tests that require external services or models",
+    "slow: tests that take a significant amount of time",
+]
+asyncio_mode = "auto"
+
+
+[tool.coverage.run]
+branch = true
+source = ["src/llm_perf_lab"]
+
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 80
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "if __name__ == .__main__.:",
+]
+
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests", "scripts"]
+extend-exclude = [
+    ".venv",
+    ".venv-vllm",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "UP",
+    "SIM",
+    "RUF",
+]
+ignore = []
+
+
+[tool.ruff.lint.isort]
+known-first-party = ["llm_perf_lab"]
+
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+warn_unreachable = true
+pretty = true
+mypy_path = "src"
+exclude = '(^|/)(\.venv|\.venv-vllm)(/|$)'
+
+[[tool.mypy.overrides]]
+module = [
+    "torch.*",
+    "transformers.*",
+    "pandas.*",
+    "matplotlib.*",
+    "pynvml.*",
+    "vllm.*",
+]
+ignore_missing_imports = true

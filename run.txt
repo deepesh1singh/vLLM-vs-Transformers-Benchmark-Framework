@@ -1,0 +1,59 @@
+python scripts/run_baseline.py \
+  --model Qwen/Qwen2.5-3B-Instruct \
+  --prompt "Explain in simple terms why continuous batching improves LLM inference performance." \
+  --device cuda \
+  --dtype float16 \
+  --max-new-tokens 128 \
+  --temperature 0.0 \
+  --warmup-runs 1 \
+  --repetitions 3 \
+  --output results/qwen25_3b_baseline.json
+
+  python scripts/run_baseline.py \
+  --model Qwen/Qwen2.5-3B-Instruct \
+  --prompt "Explain in simple terms why continuous batching improves LLM inference performance." \
+  --device cuda \
+  --dtype float16 \
+  --max-new-tokens 128 \
+  --temperature 0.0 \
+  --warmup-runs 1 \
+  --repetitions 3 \
+  --streaming \
+  --output results/qwen25_3b_streaming.json
+
+
+VLLM
+curl -s \
+  http://127.0.0.1:8000/v1/chat/completions \
+  -H "Authorization: Bearer local-vllm-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "qwen25-3b",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a concise and helpful assistant."
+      },
+      {
+        "role": "user",
+        "content": "Explain continuous batching in one sentence."
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 64,
+    "stream": false
+  }' \
+  | python3 -m json.tool
+
+
+  benchmark
+  
+  python scripts/run_async_benchmark.py \
+  --prompt "Explain continuous batching and its performance benefits." \
+  --concurrency 1 2 4 8 16 32 \
+  --requests-per-level 64 \
+  --repetitions 3 \
+  --warmup-requests 8 \
+  --warmup-concurrency 4 \
+  --max-tokens 128 \
+  --output results/qwen25_3b_vllm_concurrency.json

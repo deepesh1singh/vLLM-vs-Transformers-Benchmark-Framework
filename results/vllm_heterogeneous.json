@@ -1,0 +1,875 @@
+{
+  "created_at": "2026-07-27T18:56:51.062111+00:00",
+  "server": {
+    "base_url": "http://127.0.0.1:8000",
+    "model": "qwen25-3b"
+  },
+  "workload": {
+    "prompt_count": 8,
+    "max_tokens": 128,
+    "temperature": 0.0,
+    "concurrency_levels": [
+      128
+    ],
+    "requests_per_level": 384,
+    "repetitions": 5,
+    "global_warmup_requests": 384,
+    "level_warmup_policy": "max(16, concurrency * 2)",
+    "profiling": {
+      "enabled": true,
+      "gpu_index": 0,
+      "sample_interval_seconds": 0.2
+    }
+  },
+  "levels": [
+    {
+      "concurrency": 128,
+      "level_warmup_requests": 256,
+      "stability": {
+        "repetition_count": 5,
+        "median_requests_per_second": 34.41207380459117,
+        "minimum_requests_per_second": 31.889608171248476,
+        "maximum_requests_per_second": 36.7811427971279,
+        "requests_per_second_cv": 0.04501134647629955,
+        "median_output_tokens_per_second": 4404.745446987669,
+        "minimum_output_tokens_per_second": 4081.869845919805,
+        "maximum_output_tokens_per_second": 4707.986278032371,
+        "output_tokens_per_second_cv": 0.04501134647629955,
+        "median_latency_p50_seconds": 3.365488412000559,
+        "median_ttft_p50_seconds": 0.6617467059986666,
+        "status": "stable",
+        "valid": true
+      },
+      "pooled_requests": {
+        "concurrency": 128,
+        "request_count": 1920,
+        "successful_requests": 1920,
+        "failed_requests": 0,
+        "success_rate": 1.0,
+        "wall_time_seconds": 55.93554532199778,
+        "requests_per_second": 34.32522180569359,
+        "output_tokens_per_second": 4393.628391128779,
+        "prompt_tokens_total": 255840,
+        "completion_tokens_total": 245760,
+        "latency_seconds": {
+          "count": 1920,
+          "mean": 3.492006020449971,
+          "minimum": 2.446351811999193,
+          "p50": 3.3717906734982535,
+          "p95": 4.144651172897284,
+          "p99": 4.246409139819552,
+          "maximum": 4.3219963449992065
+        },
+        "time_to_first_token_seconds": {
+          "count": 1920,
+          "mean": 0.6546323822755066,
+          "minimum": 0.06133975500051747,
+          "p50": 0.6621679510008107,
+          "p95": 0.859756095650664,
+          "p99": 0.9225451541999427,
+          "maximum": 0.9551210300014645
+        },
+        "decode_seconds": {
+          "count": 1920,
+          "mean": 2.740472487432868,
+          "minimum": 2.088065979998646,
+          "p50": 2.6305255975003092,
+          "p95": 3.3986415216499153,
+          "p99": 3.4290293878510054,
+          "maximum": 3.4452908669991302
+        },
+        "post_stream_overhead_seconds": {
+          "count": 1920,
+          "mean": 0.0969011507415966,
+          "minimum": 0.0025501739983155858,
+          "p50": 0.08354126149970398,
+          "p95": 0.1933691380012533,
+          "p99": 0.20721023646943648,
+          "maximum": 0.20830015900355647
+        },
+        "inter_event_latency_seconds": {
+          "count": 243840,
+          "mean": 0.02157852352309345,
+          "minimum": 8.068000170169398e-06,
+          "p50": 0.01854097549949074,
+          "p95": 0.03125069570032792,
+          "p99": 0.11390910720892843,
+          "maximum": 0.6911218599998392
+        },
+        "decode_tokens_per_second": {
+          "count": 1920,
+          "mean": 46.92667239183683,
+          "minimum": 36.86190945922014,
+          "p50": 48.27932503895641,
+          "p95": 52.96480030819051,
+          "p99": 56.18452070365168,
+          "maximum": 60.82183284269703
+        },
+        "error_counts": {}
+      },
+      "repetitions": [
+        {
+          "concurrency": 128,
+          "request_count": 384,
+          "successful_requests": 384,
+          "failed_requests": 0,
+          "success_rate": 1.0,
+          "wall_time_seconds": 12.041540238999005,
+          "requests_per_second": 31.889608171248476,
+          "output_tokens_per_second": 4081.869845919805,
+          "prompt_tokens_total": 51168,
+          "completion_tokens_total": 49152,
+          "latency_seconds": {
+            "count": 384,
+            "mean": 3.7643061202212493,
+            "minimum": 2.820966965999105,
+            "p50": 3.931772303500111,
+            "p95": 4.182216615600373,
+            "p99": 4.23271320830052,
+            "maximum": 4.273441905999789
+          },
+          "time_to_first_token_seconds": {
+            "count": 384,
+            "mean": 0.6744491486926828,
+            "minimum": 0.0789573059992108,
+            "p50": 0.673673688497729,
+            "p95": 0.9206293784993249,
+            "p99": 0.9441772351891996,
+            "maximum": 0.9551210300014645
+          },
+          "decode_seconds": {
+            "count": 384,
+            "mean": 3.0044160018801924,
+            "minimum": 2.627615656998387,
+            "p50": 2.9890934600007313,
+            "p95": 3.428568762001487,
+            "p99": 3.4424310898494515,
+            "maximum": 3.4452908669991302
+          },
+          "post_stream_overhead_seconds": {
+            "count": 384,
+            "mean": 0.08544096964837422,
+            "minimum": 0.0036892700009047985,
+            "p50": 0.044093704000260914,
+            "p95": 0.1950119661005374,
+            "p99": 0.1969001132408448,
+            "maximum": 0.19707986199864536
+          },
+          "inter_event_latency_seconds": {
+            "count": 48768,
+            "mean": 0.023656818912442458,
+            "minimum": 8.068000170169398e-06,
+            "p50": 0.019044058501094696,
+            "p95": 0.03833400405019347,
+            "p99": 0.15950822279042806,
+            "maximum": 0.651799597999343
+          },
+          "decode_tokens_per_second": {
+            "count": 384,
+            "mean": 42.67255572246698,
+            "minimum": 36.86190945922014,
+            "p50": 42.48779894972746,
+            "p95": 48.157162364703424,
+            "p99": 48.286840515621975,
+            "maximum": 48.33279161727798
+          },
+          "error_counts": {},
+          "telemetry": {
+            "summary": {
+              "gpu_index": 0,
+              "gpu_name": "NVIDIA GeForce RTX 4080",
+              "sample_interval_seconds": 0.2,
+              "duration_seconds": 12.063523106000503,
+              "sample_count": 60,
+              "estimated_gpu_energy_joules": 2299.686142828621,
+              "gpu_utilization_percent": {
+                "count": 60,
+                "mean": 91.08333333333333,
+                "minimum": 5.0,
+                "p50": 99.0,
+                "p95": 100.0,
+                "maximum": 100.0
+              },
+              "memory_io_utilization_percent": {
+                "count": 60,
+                "mean": 51.916666666666664,
+                "minimum": 1.0,
+                "p50": 60.5,
+                "p95": 79.0,
+                "maximum": 85.0
+              },
+              "gpu_memory_used_mb": {
+                "count": 60,
+                "mean": 16145.751106770833,
+                "minimum": 16117.05078125,
+                "p50": 16140.80078125,
+                "p95": 16189.41953125,
+                "maximum": 16190.39453125
+              },
+              "power_watts": {
+                "count": 60,
+                "mean": 190.85320000000002,
+                "minimum": 77.75,
+                "p50": 199.495,
+                "p95": 235.0249,
+                "maximum": 242.079
+              },
+              "temperature_celsius": {
+                "count": 60,
+                "mean": 50.4,
+                "minimum": 42.0,
+                "p50": 51.0,
+                "p95": 55.0,
+                "maximum": 55.0
+              },
+              "graphics_clock_mhz": {
+                "count": 60,
+                "mean": 2748.25,
+                "minimum": 2745.0,
+                "p50": 2745.0,
+                "p95": 2760.0,
+                "maximum": 2760.0
+              },
+              "memory_clock_mhz": {
+                "count": 60,
+                "mean": 10801.0,
+                "minimum": 10801.0,
+                "p50": 10801.0,
+                "p95": 10801.0,
+                "maximum": 10801.0
+              },
+              "cpu_utilization_percent": {
+                "count": 60,
+                "mean": 5.345,
+                "minimum": 0.0,
+                "p50": 5.35,
+                "p95": 7.81,
+                "maximum": 9.3
+              },
+              "system_memory_utilization_percent": {
+                "count": 60,
+                "mean": 11.8,
+                "minimum": 11.8,
+                "p50": 11.8,
+                "p95": 11.8,
+                "maximum": 11.8
+              }
+            },
+            "sampling_error": null
+          }
+        },
+        {
+          "concurrency": 128,
+          "request_count": 384,
+          "successful_requests": 384,
+          "failed_requests": 0,
+          "success_rate": 1.0,
+          "wall_time_seconds": 11.167953415999364,
+          "requests_per_second": 34.38409757779579,
+          "output_tokens_per_second": 4401.164489957861,
+          "prompt_tokens_total": 51168,
+          "completion_tokens_total": 49152,
+          "latency_seconds": {
+            "count": 384,
+            "mean": 3.481663419007816,
+            "minimum": 2.446351811999193,
+            "p50": 3.365488412000559,
+            "p95": 4.225558824050495,
+            "p99": 4.289056241989856,
+            "maximum": 4.3219963449992065
+          },
+          "time_to_first_token_seconds": {
+            "count": 384,
+            "mean": 0.607033132039002,
+            "minimum": 0.06133975500051747,
+            "p50": 0.6218833200000518,
+            "p95": 0.7732062510502147,
+            "p99": 0.8517526963004639,
+            "maximum": 0.8783110520016635
+          },
+          "decode_seconds": {
+            "count": 384,
+            "mean": 2.768454244070464,
+            "minimum": 2.088065979998646,
+            "p50": 2.561241069499374,
+            "p95": 3.405675797101503,
+            "p99": 3.425119498728636,
+            "maximum": 3.429095961000712
+          },
+          "post_stream_overhead_seconds": {
+            "count": 384,
+            "mean": 0.10617604289834996,
+            "minimum": 0.0025501739983155858,
+            "p50": 0.07392754400098056,
+            "p95": 0.20721211594955094,
+            "p99": 0.2081346724105606,
+            "maximum": 0.20830015900355647
+          },
+          "inter_event_latency_seconds": {
+            "count": 48768,
+            "mean": 0.021798852315515465,
+            "minimum": 8.095998055068776e-06,
+            "p50": 0.018375443001787062,
+            "p95": 0.03128223624844395,
+            "p99": 0.11075462590168172,
+            "maximum": 0.6911218599998392
+          },
+          "decode_tokens_per_second": {
+            "count": 384,
+            "mean": 46.958355103070176,
+            "minimum": 37.036000579854765,
+            "p50": 49.585337018098244,
+            "p95": 53.87843734456408,
+            "p99": 59.05727931521512,
+            "maximum": 60.82183284269703
+          },
+          "error_counts": {},
+          "telemetry": {
+            "summary": {
+              "gpu_index": 0,
+              "gpu_name": "NVIDIA GeForce RTX 4080",
+              "sample_interval_seconds": 0.2,
+              "duration_seconds": 11.188792994998948,
+              "sample_count": 55,
+              "estimated_gpu_energy_joules": 2231.792625271843,
+              "gpu_utilization_percent": {
+                "count": 55,
+                "mean": 93.25454545454545,
+                "minimum": 1.0,
+                "p50": 99.0,
+                "p95": 100.0,
+                "maximum": 100.0
+              },
+              "memory_io_utilization_percent": {
+                "count": 55,
+                "mean": 58.72727272727273,
+                "minimum": 1.0,
+                "p50": 66.0,
+                "p95": 80.3,
+                "maximum": 85.0
+              },
+              "gpu_memory_used_mb": {
+                "count": 55,
+                "mean": 16117.351917613636,
+                "minimum": 16117.05078125,
+                "p50": 16117.36328125,
+                "p95": 16117.36328125,
+                "maximum": 16117.36328125
+              },
+              "power_watts": {
+                "count": 55,
+                "mean": 202.54803636363636,
+                "minimum": 96.966,
+                "p50": 210.468,
+                "p95": 244.02450000000002,
+                "maximum": 247.92
+              },
+              "temperature_celsius": {
+                "count": 55,
+                "mean": 50.74545454545454,
+                "minimum": 44.0,
+                "p50": 50.0,
+                "p95": 55.3,
+                "maximum": 56.0
+              },
+              "graphics_clock_mhz": {
+                "count": 55,
+                "mean": 2747.181818181818,
+                "minimum": 2745.0,
+                "p50": 2745.0,
+                "p95": 2760.0,
+                "maximum": 2760.0
+              },
+              "memory_clock_mhz": {
+                "count": 55,
+                "mean": 10801.0,
+                "minimum": 10801.0,
+                "p50": 10801.0,
+                "p95": 10801.0,
+                "maximum": 10801.0
+              },
+              "cpu_utilization_percent": {
+                "count": 55,
+                "mean": 5.654545454545454,
+                "minimum": 2.3,
+                "p50": 5.6,
+                "p95": 7.83,
+                "maximum": 9.2
+              },
+              "system_memory_utilization_percent": {
+                "count": 55,
+                "mean": 11.796363636363637,
+                "minimum": 11.7,
+                "p50": 11.8,
+                "p95": 11.8,
+                "maximum": 11.8
+              }
+            },
+            "sampling_error": null
+          }
+        },
+        {
+          "concurrency": 128,
+          "request_count": 384,
+          "successful_requests": 384,
+          "failed_requests": 0,
+          "success_rate": 1.0,
+          "wall_time_seconds": 10.440132382998854,
+          "requests_per_second": 36.7811427971279,
+          "output_tokens_per_second": 4707.986278032371,
+          "prompt_tokens_total": 51168,
+          "completion_tokens_total": 49152,
+          "latency_seconds": {
+            "count": 384,
+            "mean": 3.2686178781953763,
+            "minimum": 2.528022675000102,
+            "p50": 3.27402914349841,
+            "p95": 3.478791479149186,
+            "p99": 3.531383651219767,
+            "maximum": 3.553681911998865
+          },
+          "time_to_first_token_seconds": {
+            "count": 384,
+            "mean": 0.654646985252659,
+            "minimum": 0.07382361800046056,
+            "p50": 0.6617467059986666,
+            "p95": 0.8031190561017867,
+            "p99": 0.8347835501288137,
+            "maximum": 0.8425686670016148
+          },
+          "decode_seconds": {
+            "count": 384,
+            "mean": 2.520697911786461,
+            "minimum": 2.2192821970020304,
+            "p50": 2.504647729501812,
+            "p95": 2.6221921218006172,
+            "p99": 2.632708581190418,
+            "maximum": 2.636867899000208
+          },
+          "post_stream_overhead_seconds": {
+            "count": 384,
+            "mean": 0.0932729811562562,
+            "minimum": 0.0032973849993140902,
+            "p50": 0.07000581150168728,
+            "p95": 0.1672932845482137,
+            "p99": 0.16777293861970974,
+            "maximum": 0.16853793599875644
+          },
+          "inter_event_latency_seconds": {
+            "count": 48768,
+            "mean": 0.0198480150534367,
+            "minimum": 8.35000173537992e-06,
+            "p50": 0.01849986199886189,
+            "p95": 0.027474252650426936,
+            "p99": 0.09403416761029805,
+            "maximum": 0.2578655789984623
+          },
+          "decode_tokens_per_second": {
+            "count": 384,
+            "mean": 50.425420539881635,
+            "minimum": 48.163201519557795,
+            "p50": 50.70573490374153,
+            "p95": 52.18336400353781,
+            "p99": 56.97215988724575,
+            "maximum": 57.22571026413898
+          },
+          "error_counts": {},
+          "telemetry": {
+            "summary": {
+              "gpu_index": 0,
+              "gpu_name": "NVIDIA GeForce RTX 4080",
+              "sample_interval_seconds": 0.2,
+              "duration_seconds": 10.46212679400196,
+              "sample_count": 52,
+              "estimated_gpu_energy_joules": 2212.3112154242795,
+              "gpu_utilization_percent": {
+                "count": 52,
+                "mean": 89.73076923076923,
+                "minimum": 1.0,
+                "p50": 99.0,
+                "p95": 99.44999999999999,
+                "maximum": 100.0
+              },
+              "memory_io_utilization_percent": {
+                "count": 52,
+                "mean": 60.21153846153846,
+                "minimum": 1.0,
+                "p50": 66.0,
+                "p95": 83.0,
+                "maximum": 85.0
+              },
+              "gpu_memory_used_mb": {
+                "count": 52,
+                "mean": 16117.108323317309,
+                "minimum": 16116.55078125,
+                "p50": 16117.36328125,
+                "p95": 16117.36328125,
+                "maximum": 16117.36328125
+              },
+              "power_watts": {
+                "count": 52,
+                "mean": 211.52959615384614,
+                "minimum": 97.871,
+                "p50": 228.1775,
+                "p95": 242.64815,
+                "maximum": 247.893
+              },
+              "temperature_celsius": {
+                "count": 52,
+                "mean": 52.42307692307692,
+                "minimum": 44.0,
+                "p50": 53.5,
+                "p95": 55.449999999999996,
+                "maximum": 56.0
+              },
+              "graphics_clock_mhz": {
+                "count": 52,
+                "mean": 2749.0384615384614,
+                "minimum": 2745.0,
+                "p50": 2745.0,
+                "p95": 2760.0,
+                "maximum": 2760.0
+              },
+              "memory_clock_mhz": {
+                "count": 52,
+                "mean": 10801.0,
+                "minimum": 10801.0,
+                "p50": 10801.0,
+                "p95": 10801.0,
+                "maximum": 10801.0
+              },
+              "cpu_utilization_percent": {
+                "count": 52,
+                "mean": 5.638461538461539,
+                "minimum": 1.9,
+                "p50": 5.65,
+                "p95": 7.845,
+                "maximum": 9.3
+              },
+              "system_memory_utilization_percent": {
+                "count": 52,
+                "mean": 11.8,
+                "minimum": 11.8,
+                "p50": 11.8,
+                "p95": 11.8,
+                "maximum": 11.8
+              }
+            },
+            "sampling_error": null
+          }
+        },
+        {
+          "concurrency": 128,
+          "request_count": 384,
+          "successful_requests": 384,
+          "failed_requests": 0,
+          "success_rate": 1.0,
+          "wall_time_seconds": 11.158874125998409,
+          "requests_per_second": 34.41207380459117,
+          "output_tokens_per_second": 4404.745446987669,
+          "prompt_tokens_total": 51168,
+          "completion_tokens_total": 49152,
+          "latency_seconds": {
+            "count": 384,
+            "mean": 3.485818714989506,
+            "minimum": 2.803602044001309,
+            "p50": 3.3411666084994067,
+            "p95": 4.010250787697442,
+            "p99": 4.064381511468346,
+            "maximum": 4.081402001000242
+          },
+          "time_to_first_token_seconds": {
+            "count": 384,
+            "mean": 0.617607437724009,
+            "minimum": 0.06708256500132848,
+            "p50": 0.6405119720002403,
+            "p95": 0.7497195570982512,
+            "p99": 0.8362431338521856,
+            "maximum": 0.8544806030004111
+          },
+          "decode_seconds": {
+            "count": 384,
+            "mean": 2.7657725330754963,
+            "minimum": 2.367058931002248,
+            "p50": 2.6503430619995925,
+            "p95": 3.209028760248475,
+            "p99": 3.2182156435603613,
+            "maximum": 3.2207651560020167
+          },
+          "post_stream_overhead_seconds": {
+            "count": 384,
+            "mean": 0.10243874419000083,
+            "minimum": 0.004660310001781909,
+            "p50": 0.09396902700063947,
+            "p95": 0.17288267404892393,
+            "p99": 0.1733025419297701,
+            "maximum": 0.17342947300130618
+          },
+          "inter_event_latency_seconds": {
+            "count": 48768,
+            "mean": 0.02177773648090942,
+            "minimum": 8.474999049212784e-06,
+            "p50": 0.017964931001188233,
+            "p95": 0.029150802300864597,
+            "p99": 0.15196214570962213,
+            "maximum": 0.4887987420006539
+          },
+          "decode_tokens_per_second": {
+            "count": 384,
+            "mean": 46.450996698825875,
+            "minimum": 39.43162380632774,
+            "p50": 47.91832552829747,
+            "p95": 51.772046828139615,
+            "p99": 53.57259868363786,
+            "maximum": 53.65307907489499
+          },
+          "error_counts": {},
+          "telemetry": {
+            "summary": {
+              "gpu_index": 0,
+              "gpu_name": "NVIDIA GeForce RTX 4080",
+              "sample_interval_seconds": 0.2,
+              "duration_seconds": 11.18015722400014,
+              "sample_count": 55,
+              "estimated_gpu_energy_joules": 2221.7168311288606,
+              "gpu_utilization_percent": {
+                "count": 55,
+                "mean": 91.65454545454546,
+                "minimum": 1.0,
+                "p50": 99.0,
+                "p95": 100.0,
+                "maximum": 100.0
+              },
+              "memory_io_utilization_percent": {
+                "count": 55,
+                "mean": 56.163636363636364,
+                "minimum": 1.0,
+                "p50": 65.0,
+                "p95": 83.3,
+                "maximum": 86.0
+              },
+              "gpu_memory_used_mb": {
+                "count": 55,
+                "mean": 16115.087144886364,
+                "minimum": 16114.36328125,
+                "p50": 16114.36328125,
+                "p95": 16116.55078125,
+                "maximum": 16116.55078125
+              },
+              "power_watts": {
+                "count": 55,
+                "mean": 200.65565454545455,
+                "minimum": 93.917,
+                "p50": 204.358,
+                "p95": 242.9492,
+                "maximum": 245.966
+              },
+              "temperature_celsius": {
+                "count": 55,
+                "mean": 52.27272727272727,
+                "minimum": 44.0,
+                "p50": 54.0,
+                "p95": 55.3,
+                "maximum": 56.0
+              },
+              "graphics_clock_mhz": {
+                "count": 55,
+                "mean": 2747.7272727272725,
+                "minimum": 2745.0,
+                "p50": 2745.0,
+                "p95": 2760.0,
+                "maximum": 2760.0
+              },
+              "memory_clock_mhz": {
+                "count": 55,
+                "mean": 10801.0,
+                "minimum": 10801.0,
+                "p50": 10801.0,
+                "p95": 10801.0,
+                "maximum": 10801.0
+              },
+              "cpu_utilization_percent": {
+                "count": 55,
+                "mean": 5.541818181818182,
+                "minimum": 0.0,
+                "p50": 5.6,
+                "p95": 8.02,
+                "maximum": 9.0
+              },
+              "system_memory_utilization_percent": {
+                "count": 55,
+                "mean": 11.82909090909091,
+                "minimum": 11.8,
+                "p50": 11.8,
+                "p95": 11.9,
+                "maximum": 11.9
+              }
+            },
+            "sampling_error": null
+          }
+        },
+        {
+          "concurrency": 128,
+          "request_count": 384,
+          "successful_requests": 384,
+          "failed_requests": 0,
+          "success_rate": 1.0,
+          "wall_time_seconds": 11.127045158002147,
+          "requests_per_second": 34.51050971280024,
+          "output_tokens_per_second": 4417.345243238431,
+          "prompt_tokens_total": 51168,
+          "completion_tokens_total": 49152,
+          "latency_seconds": {
+            "count": 384,
+            "mean": 3.4596239698359077,
+            "minimum": 2.528248759001144,
+            "p50": 3.5049278890019195,
+            "p95": 3.707447342100204,
+            "p99": 3.7781694337111187,
+            "maximum": 3.797718353998789
+          },
+          "time_to_first_token_seconds": {
+            "count": 384,
+            "mean": 0.7194252076691802,
+            "minimum": 0.08008832699852064,
+            "p50": 0.7422069370004465,
+            "p95": 0.8837194276986339,
+            "p99": 0.9180235042004643,
+            "maximum": 0.9303728720005893
+          },
+          "decode_seconds": {
+            "count": 384,
+            "mean": 2.643021746351726,
+            "minimum": 2.2858934450014203,
+            "p50": 2.6576968365006906,
+            "p95": 2.873329848601137,
+            "p99": 2.9264111159192545,
+            "maximum": 2.9334350139979506
+          },
+          "post_stream_overhead_seconds": {
+            "count": 384,
+            "mean": 0.09717701581500175,
+            "minimum": 0.0030042610014788806,
+            "p50": 0.08395653899970057,
+            "p95": 0.18946232630041776,
+            "p99": 0.1899019865900118,
+            "maximum": 0.190004238000256
+          },
+          "inter_event_latency_seconds": {
+            "count": 48768,
+            "mean": 0.020811194853163194,
+            "minimum": 8.422000973951072e-06,
+            "p50": 0.018776564998916,
+            "p95": 0.02928673239985074,
+            "p99": 0.10069769960129643,
+            "maximum": 0.2923415469995234
+          },
+          "decode_tokens_per_second": {
+            "count": 384,
+            "mean": 48.1260338949395,
+            "minimum": 43.293953809773654,
+            "p50": 47.78573635204101,
+            "p95": 51.24913642368179,
+            "p99": 55.30852496541769,
+            "maximum": 55.55814523100883
+          },
+          "error_counts": {},
+          "telemetry": {
+            "summary": {
+              "gpu_index": 0,
+              "gpu_name": "NVIDIA GeForce RTX 4080",
+              "sample_interval_seconds": 0.2,
+              "duration_seconds": 11.148635065001145,
+              "sample_count": 54,
+              "estimated_gpu_energy_joules": 2265.330967804665,
+              "gpu_utilization_percent": {
+                "count": 54,
+                "mean": 90.0925925925926,
+                "minimum": 1.0,
+                "p50": 99.0,
+                "p95": 99.35,
+                "maximum": 100.0
+              },
+              "memory_io_utilization_percent": {
+                "count": 54,
+                "mean": 58.53703703703704,
+                "minimum": 1.0,
+                "p50": 65.0,
+                "p95": 84.0,
+                "maximum": 90.0
+              },
+              "gpu_memory_used_mb": {
+                "count": 54,
+                "mean": 16114.969762731482,
+                "minimum": 16114.36328125,
+                "p50": 16114.36328125,
+                "p95": 16116.36328125,
+                "maximum": 16116.36328125
+              },
+              "power_watts": {
+                "count": 54,
+                "mean": 206.57427777777778,
+                "minimum": 76.97,
+                "p50": 222.655,
+                "p95": 240.53234999999998,
+                "maximum": 244.065
+              },
+              "temperature_celsius": {
+                "count": 54,
+                "mean": 53.425925925925924,
+                "minimum": 45.0,
+                "p50": 54.0,
+                "p95": 56.349999999999994,
+                "maximum": 57.0
+              },
+              "graphics_clock_mhz": {
+                "count": 54,
+                "mean": 2746.9444444444443,
+                "minimum": 2745.0,
+                "p50": 2745.0,
+                "p95": 2760.0,
+                "maximum": 2760.0
+              },
+              "memory_clock_mhz": {
+                "count": 54,
+                "mean": 10801.0,
+                "minimum": 10801.0,
+                "p50": 10801.0,
+                "p95": 10801.0,
+                "maximum": 10801.0
+              },
+              "cpu_utilization_percent": {
+                "count": 54,
+                "mean": 5.722222222222222,
+                "minimum": 1.9,
+                "p50": 5.75,
+                "p95": 7.4,
+                "maximum": 8.1
+              },
+              "system_memory_utilization_percent": {
+                "count": 54,
+                "mean": 11.9,
+                "minimum": 11.9,
+                "p50": 11.9,
+                "p95": 11.9,
+                "maximum": 11.9
+              }
+            },
+            "sampling_error": null
+          }
+        }
+      ],
+      "telemetry": {
+        "repetition_count": 5,
+        "median_gpu_utilization_percent": 91.08333333333333,
+        "median_memory_io_utilization_percent": 58.53703703703704,
+        "median_power_watts": 202.54803636363636,
+        "maximum_gpu_memory_used_mb": 16190.39453125,
+        "maximum_temperature_celsius": 57.0,
+        "median_graphics_clock_mhz": 2747.7272727272725,
+        "median_cpu_utilization_percent": 5.638461538461539,
+        "median_estimated_gpu_energy_joules": 2231.792625271843
+      }
+    }
+  ]
+}

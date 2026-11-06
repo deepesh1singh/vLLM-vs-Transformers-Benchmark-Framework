@@ -1,0 +1,8 @@
+[
+  "Explain continuous batching in one sentence.",
+  "What is the difference between latency and throughput in LLM inference?",
+  "Explain why static batching can improve GPU utilization when serving transformer-based language models.",
+  "Describe the role of the KV cache during autoregressive language-model inference and explain how its memory consumption changes with batch size and sequence length.",
+  "Compare static batching, dynamic batching, and continuous batching. Discuss their impact on GPU utilization, request latency, queueing latency, padding waste, scheduling complexity, and overall throughput in an online language-model inference service.",
+  "A production LLM service receives requests with different prompt lengths and generation limits. Explain why combining all requests into a single static batch can waste computation. Include the effects of left padding, sequences finishing at different times, KV-cache allocation, head-of-line blocking, and the trade-off between waiting to form a larger batch and immediately processing a smaller one."
+]
